@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import colors from 'colors';
+import morgan from 'morgan';
 
 //GRAPHQL
 import { ApolloServer, gql } from 'apollo-server-express';
@@ -27,6 +28,9 @@ app.use(
   express.json()
 );
 
+//MORGAN LOGGING
+app.use(morgan('METHOD :method URL :url STATUS :status RESPONSE LENGTH :res[content-length] RESPONSE TIME :response-time ms'));
+
 //IMAGE UPLOAD MIDDLEWARE
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -43,7 +47,7 @@ apolloServer.applyMiddleware({app, path:'/graphql'});
 //LOAD ROUTES
 app.use(router);
 
-//CUSTOM MIDDLEWARE - make sure error catching is last!
+//CUSTOM MIDDLEWARE - make sure error catching is last
 app.use(notFound);
 app.use(errorHandler);
 
