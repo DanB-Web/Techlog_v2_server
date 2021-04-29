@@ -18,7 +18,7 @@ const companySchema = mongoose.Schema({
     type: String,
     required: true
   },
-  logoUrl: {
+  companySvg: {
     type: String,
     required: true
   },
