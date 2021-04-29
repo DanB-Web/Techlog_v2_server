@@ -10,9 +10,9 @@ import { addImage, removeImage } from './controllers/imageControllers.js';
 
 import { protect, protectBody } from './middleware/authMiddleware.js';
 
-router.get('/test', protect, (req, res) => {
+router.get('/test', (req, res) => {
   console.log(req.headers);
-  res.json('Route connected');
+  res.json('Server running :)');
 })
 
 //USER ROUTES

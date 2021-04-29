@@ -33,7 +33,7 @@ type Company {
   address: String!
   primaryColor: String!
   secondaryColor: String!
-  logoUrl: String!
+  companySvg: String!
   users: [User!]
   reports: [Report]
 }
