@@ -2,7 +2,13 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
 
-  const databaseString = process.env.MONGO_URI;
+  let databaseString;
+
+  if (process.env.NODE_ENV === 'production') {
+    databaseString = process.env.MONGO_URI;
+  } else {
+    databaseString = process.env.MONGO_LOCAL;
+  }
 
   try {
     const conn = await mongoose.connect(databaseString, {

@@ -1,13 +1,12 @@
 import cloudinary from 'cloudinary';
 
-//MOVE TO SEPERATE FILE AND IMPORT
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET
-})
-
 const addImage = async (req, res) => {
+
+  cloudinary.v2.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET
+  })
 
   try {
 
@@ -35,6 +34,12 @@ const addImage = async (req, res) => {
 }
 
 const removeImage = async (req, res) => {
+
+  cloudinary.v2.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET
+  })
   
   try {
 
