@@ -22,9 +22,15 @@ dotenv.config();
 const PORT = process.env.PORT || 5000 ;
 const MODE = process.env.NODE_ENV || 'env not found';
 
+const corsOptions = {
+  origin: 'https://techlogbeta.netlify.app',
+  methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'DELETE'],
+  credentials: true
+};
+
 //STANDARD MIDDLEWARE
 app.use(
-  cors(),
+  cors(corsOptions),
   express.json()
 );
 
